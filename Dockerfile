@@ -58,4 +58,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 # Source the ENV variables here explicitly
-CMD ["/bin/bash", "-c", ". $HOME/.bashrc && /swift/bin/prepare.sh && exec /swift/bin/tests.sh"]
+CMD ["/bin/bash", "-c", ". $HOME/.bashrc && /swift/bin/prepare_tests.sh && exec /swift/bin/tests.sh"]
