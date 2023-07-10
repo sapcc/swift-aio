@@ -4,4 +4,4 @@ set -e
 
 swift-init all start
 
-tail -f /dev/null
+sudo tail -f /var/log/swift/*
