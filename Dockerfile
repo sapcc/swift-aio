@@ -32,11 +32,8 @@ RUN	sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
 
     #mkdir -p /var/log/swift/hourly; chown -R syslog.adm /var/log/swift; chmod -R g+w /var/log/swift && \    
 
-# clone swift src to get tests agains and install test requirements
-# TODO Remove special handling for Zed when release not used anymore
-# Zed release still uses nose for tests, which is not working with python3.10. Use 2023.1 tests for Zed, which is based on pytest.
-RUN if [ "$RELEASE" = "zed" ] ; then git clone --branch stable/2023.1-m3 --single-branch --depth 1 https://github.com/sapcc/swift.git /usr/local/src/swift ; \
-    else git clone --branch stable/${RELEASE}-m3 --single-branch --depth 1 https://github.com/sapcc/swift.git /usr/local/src/swift ; fi && \
+# clone swift src to get tests again and install test requirements
+RUN git clone --branch stable/${RELEASE}-m3 --single-branch --depth 1 https://github.com/sapcc/swift.git /usr/local/src/swift && \
     pip3 install -r /usr/local/src/swift/test-requirements.txt && \
     # tests stated as swift needs access here for .pytest_cache and .stestr.conf
     chown -R swift:swift /usr/local/src/swift
