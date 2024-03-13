@@ -1,9 +1,9 @@
-ARG RELEASE="2023.1"
+ARG RELEASE="2023.2"
 ARG TAG="latest"
 
 FROM keppel.eu-de-1.cloud.sap/ccloud/swift:${RELEASE}-${TAG}
 
-ARG RELEASE="2023.1"
+ARG RELEASE="2023.2"
 ENV RELEASE=${RELEASE}
 
 RUN apt-get update && \
