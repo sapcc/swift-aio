@@ -12,6 +12,7 @@ rvalue=$?
 cd -
 if [ $rvalue -ne 0 ]; then exit $rvalue; fi
 
+echo "==== Unit tests completed ===="
 /swift/bin/resetswift
 swift-init main start
 echo "==== Func tests ===="
