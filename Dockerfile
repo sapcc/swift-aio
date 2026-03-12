@@ -33,7 +33,7 @@ RUN	sed -i '/imklog/s/^/#/' /etc/rsyslog.conf && \
     #mkdir -p /var/log/swift/hourly; chown -R syslog.adm /var/log/swift; chmod -R g+w /var/log/swift && \    
 
 # clone swift src to get tests again and install test requirements
-RUN git clone --branch non-stable/${RELEASE}-m3 --single-branch --depth 1 https://github.com/sapcc/swift.git /usr/local/src/swift && \
+RUN git clone --branch stable/${RELEASE}-m3 --single-branch --depth 1 https://github.com/sapcc/swift.git /usr/local/src/swift && \
     pip3 install -r /usr/local/src/swift/test-requirements.txt && \
     # tests stated as swift needs access here for .pytest_cache and .stestr.conf
     chown -R swift:swift /usr/local/src/swift
