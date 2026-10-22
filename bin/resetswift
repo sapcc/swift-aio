@@ -33,5 +33,6 @@ sudo chown -R swift:swift /var/run/swift
 sudo chown -R swift:swift /var/cache/swift*
 for x in {1..4}; do sudo chown -R swift:swift /srv/$x/; done
 
-sudo service rsyslog restart
+sudo pkill rsyslogd 2>/dev/null || true
+sudo rsyslogd
 sudo service memcached restart
